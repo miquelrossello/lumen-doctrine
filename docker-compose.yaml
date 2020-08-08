@@ -1,0 +1,38 @@
+version: "3.7"
+
+volumes:
+  lumen_doctrine:
+
+services:
+  app:
+    build:
+      context: ./docker
+      dockerfile: App.DockerFile
+    container_name: lumen_doctrine_app
+    volumes:
+      - "./:/var/www/lumen_doctrine"
+      - "./docker/lumen_doctrine.conf:/etc/apache2/sites-enabled/000-default.conf"
+      - "./docker/lumen_doctrine_ssl.conf:/etc/apache2/sites-enabled/default_ssl.conf"
+    ports:
+      - '8080:80'
+    depends_on:
+      - db
+    networks:
+      - lumendoctrine
+  db:
+    image: mysql:5.7
+    container_name: lumen_doctrine_db
+    volumes:
+      - "lumen_doctrine:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: lumendoctrine1234
+      MYSQL_DATABASE: lumen_doctrine
+      MYSQL_USER: lumendoctrine
+      MYSQL_PASSWORD: lumendoctrine1234
+    networks:
+      - lumendoctrine
+
+networks:
+  lumendoctrine:
