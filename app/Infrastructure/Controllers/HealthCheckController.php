@@ -5,7 +5,7 @@ namespace App\Infrastructure\Controllers;
 
 use Illuminate\Http\Response;
 
-class HealthCheckController extends Controller
+class HealthCheckController extends \Laravel\Lumen\Routing\Controller
 {
 
     public function __invoke()
