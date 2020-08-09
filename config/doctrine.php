@@ -10,7 +10,7 @@ return [
               'User' => 'App\Domain\User\User'
           ],
           'paths' => [
-              base_path('app') . '/Infrastructure/Persistence/Doctrine'
+              base_path('app') . '/Infrastructure/User/Persistence/Doctrine'
           ],
           'repository' => Doctrine\ORM\EntityRepository::class,
           'proxies'    => [
