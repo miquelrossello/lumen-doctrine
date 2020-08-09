@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 
-namespace App\Infrastructure\Providers;
+namespace App\Infrastructure\Shared\Providers;
 
 
 use Illuminate\Support\ServiceProvider;
@@ -16,7 +16,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     private function findRouteFiles(): array {
         // Scan the App\Infrastructure directory
-        $infrastructureDir = scandir(__DIR__ . '/..');
+        $infrastructureDir = scandir(__DIR__ . '/../..');
         $routeFilesPaths = [];
 
         foreach($infrastructureDir as $item) {
@@ -27,7 +27,7 @@ class RouteServiceProvider extends ServiceProvider
             // Parse names to lower case
             //$item = strtolower($item);
 
-            $itemPath = __DIR__ . '/../' . $item;
+            $itemPath = __DIR__ . '/../../' . $item;
 
             if ($this->dirHasRoutesDir($itemPath)) {
                 $phpFilesFromDir = $this->getAllPhpFilesFromDir($itemPath . '/routes');
@@ -77,6 +77,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $routeFilePaths = $this->findRouteFiles();
+
         $this->app->router->group([
             'namespace' => 'App\Infrastructure'
         ], function($router) use ($routeFilePaths) {
@@ -84,7 +85,7 @@ class RouteServiceProvider extends ServiceProvider
                 include $routeFilePath;
 
             // Keep including the default file where register routes
-            include __DIR__ . '/../routes/web.php';
+            include __DIR__ . '/../Routes/web.php';
         });
     }
 }

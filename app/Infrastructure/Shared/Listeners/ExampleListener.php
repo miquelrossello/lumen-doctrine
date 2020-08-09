@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Listeners;
+namespace App\Infrastructure\Shared\Listeners;
 
 use App\Infrastructure\Events\ExampleEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;

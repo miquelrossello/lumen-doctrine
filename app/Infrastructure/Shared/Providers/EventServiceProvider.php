@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Providers;
+namespace App\Infrastructure\Shared\Providers;
 
 use App\Infrastructure\Events\ExampleEvent;
 use App\Infrastructure\Listeners\ExampleListener;

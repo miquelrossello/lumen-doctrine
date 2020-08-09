@@ -40,12 +40,12 @@ $app->withFacades();
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    \App\Infrastructure\Exceptions\Handler::class
+    \App\Infrastructure\Shared\Exceptions\Handler::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    App\Infrastructure\Console\Kernel::class
+    App\Infrastructure\Shared\Console\Kernel::class
 );
 
 /*
@@ -94,7 +94,7 @@ $app->configure('app');
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
-$app->register(\App\Infrastructure\Providers\RouteServiceProvider::class);
+$app->register(\App\Infrastructure\Shared\Providers\RouteServiceProvider::class);
 $app->register(LaravelDoctrine\ORM\DoctrineServiceProvider::class);
 $app->register(LaravelDoctrine\Migrations\MigrationsServiceProvider::class);
 

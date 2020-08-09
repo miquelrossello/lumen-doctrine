@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace App\Infrastructure\Controllers;
+namespace App\Infrastructure\Shared\Controllers;
 
 
 use Illuminate\Http\Response;

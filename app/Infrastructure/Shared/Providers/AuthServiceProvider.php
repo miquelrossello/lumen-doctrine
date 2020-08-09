@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Providers;
+namespace App\Infrastructure\Shared\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
