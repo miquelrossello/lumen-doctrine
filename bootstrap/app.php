@@ -94,6 +94,7 @@ $app->configure('app');
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register(\App\Infrastructure\Providers\RouteServiceProvider::class);
 $app->register(LaravelDoctrine\ORM\DoctrineServiceProvider::class);
 $app->register(LaravelDoctrine\Migrations\MigrationsServiceProvider::class);
 
@@ -108,10 +109,6 @@ $app->register(LaravelDoctrine\Migrations\MigrationsServiceProvider::class);
 |
 */
 
-$app->router->group([
-    'namespace' => 'App\Infrastructure\Controllers',
-], function ($router) {
-    require __DIR__ . '/../app/Infrastructure/routes/web.php';
-});
+// APPLICATION ROUTES WILL BE REGISTERED ON ROUTESERVICEPROVIDER
 
 return $app;
