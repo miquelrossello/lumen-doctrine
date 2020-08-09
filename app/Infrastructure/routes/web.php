@@ -12,5 +12,3 @@
 */
 
 include_once 'system/index.php';
-
-include_once 'user/index.php';
