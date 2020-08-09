@@ -1,3 +1,3 @@
 <?php
 
-$router->get('/health-check', 'HealthCheckController');
+$router->get('/health-check', 'Controllers\HealthCheckController');
