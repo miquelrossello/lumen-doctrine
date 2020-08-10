@@ -74,7 +74,7 @@ class User
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getCreatedAt(): \DateTime
     {
@@ -82,7 +82,7 @@ class User
     }
 
     /**
-     * @param string $createdAt
+     * @param \DateTime $createdAt
      */
     public function setCreatedAt(\DateTime $createdAt): void
     {
@@ -90,7 +90,7 @@ class User
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getUpdatedAt(): \DateTime
     {
@@ -98,7 +98,7 @@ class User
     }
 
     /**
-     * @param string $updatedAt
+     * @param \DateTime $updatedAt
      */
     public function setUpdatedAt(\DateTime $updatedAt): void
     {
@@ -106,7 +106,7 @@ class User
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getDeletedAt(): \DateTime
     {
@@ -114,10 +114,23 @@ class User
     }
 
     /**
-     * @param string $deletedAt
+     * @param \DateTime $deletedAt
      */
     public function setDeletedAt(\DateTime $deletedAt): void
     {
         $this->deletedAt = $deletedAt;
+    }
+
+    public function toArray(): array
+    {
+        $arrayResult = [];
+        foreach ($this as $key => $name) {
+            if ($name instanceof \DateTime)
+                $name = $name->format('Y-m-d H:i:s');
+
+            $arrayResult[$key] = $name;
+        }
+
+        return $arrayResult;
     }
 }
