@@ -91,9 +91,9 @@ $app->configure('app');
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
-// $app->register(App\Providers\EventServiceProvider::class);
+$app->register(App\Infrastructure\Shared\Providers\AppServiceProvider::class);
+// $app->register(App\Infrastructure\Shared\Providers\AuthServiceProvider::class);
+// $app->register(App\Infrastructure\Shared\Providers\EventServiceProvider::class);
 $app->register(\App\Infrastructure\Shared\Providers\RouteServiceProvider::class);
 $app->register(LaravelDoctrine\ORM\DoctrineServiceProvider::class);
 $app->register(LaravelDoctrine\Migrations\MigrationsServiceProvider::class);
