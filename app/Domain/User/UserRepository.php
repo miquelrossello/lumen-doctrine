@@ -8,4 +8,6 @@ interface UserRepository
 
     public function create(User $user): void;
 
+    public function find(string $uuid): ?object;
+
 }
