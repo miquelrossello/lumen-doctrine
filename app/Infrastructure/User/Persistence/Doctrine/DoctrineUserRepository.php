@@ -8,7 +8,6 @@ namespace App\Infrastructure\User\Persistence\Doctrine;
 use App\Domain\User\User;
 use App\Domain\User\UserRepository;
 use LaravelDoctrine\ORM\Facades\EntityManager;
-use Doctrine\Persistence\ObjectRepository;
 
 class DoctrineUserRepository implements UserRepository
 {
@@ -17,5 +16,10 @@ class DoctrineUserRepository implements UserRepository
     {
         EntityManager::persist($user);
         EntityManager::flush();
+    }
+
+    public function find(string $uuid): ?object
+    {
+        return EntityManager::getRepository(User::class)->find($uuid);
     }
 }
