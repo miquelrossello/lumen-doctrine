@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.4",
         "doctrine/inflector": "^1.4",
         "laravel-doctrine/migrations": "^2.1",
         "laravel-doctrine/orm": "1.6.*",
