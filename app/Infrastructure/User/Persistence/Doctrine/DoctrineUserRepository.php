@@ -18,7 +18,7 @@ class DoctrineUserRepository implements UserRepository
         EntityManager::flush();
     }
 
-    public function find(string $uuid): ?object
+    public function find(string $uuid): ?User
     {
         return EntityManager::getRepository(User::class)->find($uuid);
     }
