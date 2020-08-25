@@ -16,13 +16,26 @@ class User
      * User constructor.
      * @param string $id
      * @param string $firstName
+     * @param \DateTime $createdAt
+     * @param \DateTime $updatedAt
      * @param string $lastName OPTIONAL
+     * @param \DateTime|null $deletedAt OPTIONAL
      */
-    public function __construct(string $id, string $firstName, string $lastName = "")
+    public function __construct(
+        string $id,
+        string $firstName,
+        \DateTime $createdAt,
+        \DateTime $updatedAt,
+        string $lastName = "",
+        \DateTime $deletedAt = null
+    )
     {
         $this->setId($id);
         $this->setFirstName($firstName);
         $this->setLastName($lastName);
+        $this->setCreatedAt($createdAt);
+        $this->setUpdatedAt($updatedAt);
+        $this->setDeletedAt($deletedAt);
     }
 
     /**
@@ -68,7 +81,7 @@ class User
     /**
      * @param string $lastName
      */
-    public function setLastName(string $lastName): void
+    public function setLastName(string $lastName = ""): void
     {
         $this->lastName = $lastName;
     }
@@ -114,11 +127,12 @@ class User
     }
 
     /**
-     * @param \DateTime $deletedAt
+     * @param \DateTime|null $deletedAt
      */
-    public function setDeletedAt(\DateTime $deletedAt): void
+    public function setDeletedAt(\DateTime $deletedAt = null): void
     {
-        $this->deletedAt = $deletedAt;
+        if ($deletedAt)
+            $this->deletedAt = $deletedAt;
     }
 
     public function toArray(): array
