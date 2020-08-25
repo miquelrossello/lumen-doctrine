@@ -7,6 +7,7 @@ namespace App\Application\User;
 
 use App\Domain\User\User;
 use Carbon\Carbon;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
 
@@ -24,9 +25,13 @@ class ParseUserFromJsonRequest
         $data = $this->request->post();
         $this->validateData($data);
 
+        $now = Carbon::now();
+
         return new User(
             Uuid::uuid4()->toString(),
             $data['firstName'],
+            $now,
+            $now,
             array_key_exists('lastName', $data) !== false ? $data['lastName'] : ''
         );
     }
@@ -41,7 +46,7 @@ class ParseUserFromJsonRequest
         if (
             array_key_exists('firstName', $userData) === false
         )
-            throw new UserDataValidationException();
+            throw new UserDataValidationException("First name is missing");
     }
 
 }
