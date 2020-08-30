@@ -22,8 +22,8 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'id' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
         'firstName' => $faker->firstName,
-        'lastName' => $faker->lastName,
-        'created_at' => $randomDate,
-        'updated_at' => $randomDate
+        'createdAt' => $randomDate,
+        'updatedAt' => clone $randomDate,
+        'lastName' => $faker->lastName
     ];
 });
