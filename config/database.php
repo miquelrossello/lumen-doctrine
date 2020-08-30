@@ -38,6 +38,11 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
+        ],
+        'sqlite' => [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => ''
         ]
-    ],
+    ]
 ];

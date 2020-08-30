@@ -3,10 +3,10 @@ FROM php:7.4-apache
 # Update & Upgrate
 RUN apt update -y && apt upgrade -y
 
-RUN apt-get install apt-utils libcurl4-openssl-dev libzip-dev libxml2-dev libpng-dev unzip -y
+RUN apt-get install apt-utils libcurl4-openssl-dev libzip-dev libxml2-dev libpng-dev unzip libsqlite3-dev sqlite3 -y
 
 # Install required extensions
-RUN docker-php-ext-install pdo_mysql curl zip gd
+RUN docker-php-ext-install pdo_mysql pdo_sqlite curl zip gd
 
 RUN a2enmod rewrite
 
