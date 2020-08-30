@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Domain\User\User;
 use Faker\Generator as Faker;
 
 /*
@@ -17,8 +17,13 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $randomDate = $faker->dateTime;
+
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+        'id' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+        'firstName' => $faker->firstName,
+        'lastName' => $faker->lastName,
+        'created_at' => $randomDate,
+        'updated_at' => $randomDate
     ];
 });
