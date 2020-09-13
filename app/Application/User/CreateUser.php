@@ -6,7 +6,6 @@ namespace App\Application\User;
 
 
 use App\Domain\User\User;
-use App\Domain\User\UserAlreadyExists;
 use App\Domain\User\UserRepository;
 use Carbon\Carbon;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;

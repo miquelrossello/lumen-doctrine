@@ -7,7 +7,7 @@ namespace Tests\Application\User;
 
 use App\Application\User\FindUserByUuid;
 use App\Domain\User\User;
-use App\Domain\User\UserNotFoundException;
+use App\Infrastructure\User\Persistence\Doctrine\UserNotFoundException;
 use Tests\Infrastructure\User\Persistence\InMemoryUserRepository;
 use Tests\TestCase;
 

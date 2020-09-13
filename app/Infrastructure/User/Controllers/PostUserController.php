@@ -8,8 +8,8 @@ namespace App\Infrastructure\User\Controllers;
 use App\Application\User\CreateUser;
 use App\Application\User\ParseUserFromJsonRequest;
 use App\Application\User\UserDataValidationException;
-use App\Domain\User\UserAlreadyExists;
 use App\Infrastructure\User\Persistence\Doctrine\DoctrineUserRepository;
+use App\Infrastructure\User\Persistence\Doctrine\UserAlreadyExists;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 

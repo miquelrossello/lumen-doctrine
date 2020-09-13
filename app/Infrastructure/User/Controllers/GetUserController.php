@@ -6,8 +6,8 @@ namespace App\Infrastructure\User\Controllers;
 
 
 use App\Application\User\FindUserByUuid;
-use App\Domain\User\UserNotFoundException;
 use App\Infrastructure\User\Persistence\Doctrine\DoctrineUserRepository;
+use App\Infrastructure\User\Persistence\Doctrine\UserNotFoundException;
 use Illuminate\Support\Facades\Response;
 use Laravel\Lumen\Http\Request;
 

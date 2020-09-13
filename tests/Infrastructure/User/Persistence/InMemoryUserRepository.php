@@ -7,6 +7,8 @@ namespace Tests\Infrastructure\User\Persistence;
 
 use App\Domain\User\User;
 use App\Domain\User\UserRepository;
+use App\Infrastructure\User\Persistence\Doctrine\UserAlreadyExists;
+use App\Infrastructure\User\Persistence\Doctrine\UserNotFoundException;
 
 class InMemoryUserRepository implements UserRepository
 {
