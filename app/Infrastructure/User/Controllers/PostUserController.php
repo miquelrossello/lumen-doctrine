@@ -23,8 +23,8 @@ class PostUserController
             $requestParser = new ParseUserFromJsonRequest($request);
             $user = $requestParser();
 
-            $createUserService = new CreateUser(new DoctrineUserRepository(), $user);
-            $createUserService->execute();
+            $createUserService = new CreateUser(new DoctrineUserRepository());
+            $createUserService->execute($user);
             return new Response([
                 'success' => 'User created'
             ], 202);

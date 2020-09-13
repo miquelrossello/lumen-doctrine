@@ -14,20 +14,14 @@ class CreateUser
 {
 
     private UserRepository $userRepository;
-    private User $user;
 
-    public function __construct(UserRepository $userRepository, User $user)
+    public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
-        $this->user = $user;
     }
 
-    public function execute(): void
+    public function execute(User $user): void
     {
-        try {
-            $this->userRepository->create($this->user);
-        } catch (UniqueConstraintViolationException $e) {
-            throw new UserAlreadyExists();
-        }
+        $this->userRepository->create($user);
     }
 }

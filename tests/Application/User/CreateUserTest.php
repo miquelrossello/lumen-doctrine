@@ -26,16 +26,10 @@ class CreateUserTest extends TestCase
     {
         $inMemoryUserRepository = new InMemoryUserRepository();
 
-        $createUserService = new CreateUser($inMemoryUserRepository, $this->user);
-        $createUserService->execute();
+        $createUserService = new CreateUser($inMemoryUserRepository);
+        $createUserService->execute($this->user);
 
-        $userExists = false;
-        foreach ($inMemoryUserRepository->users as $user) {
-            if ($user->getId() === $this->user->getId())
-                $userExists = true;
-        }
-
-        $this->assertTrue($userExists);
+        $this->assertNotNull($inMemoryUserRepository->find($this->user->getId()));
     }
 
 }

@@ -17,7 +17,12 @@ class InMemoryUserRepository implements UserRepository
 
     public function create(User $user): void
     {
-        array_push($this->users, $user);
+        try {
+            self::find($user->getId());
+            throw new UserAlreadyExists("User already exists");
+        } catch (UserNotFoundException $e) {
+            array_push($this->users, $user);
+        }
     }
 
     public function find(string $uuid): ?User
