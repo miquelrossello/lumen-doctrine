@@ -20,12 +20,6 @@ class FindUserByUuid
 
     public function find(string $uuid): User
     {
-        // Improve returns, null case, etc.
-        $user = $this->userRepository->find($uuid);
-
-        if (!$user)
-            throw new UserNotFoundException("User couldn't be found");
-
-        return $user;
+        return $this->userRepository->find($uuid);
     }
 }
