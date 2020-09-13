@@ -21,7 +21,7 @@ class GetUserController
             $user = $findUserService->find($uuid);
             return Response::json($user->toArray(), 200);
         } catch (UserNotFoundException $e) {
-            return Response::json(['error' => $e->getMessage()], 202);
+            return Response::json(['error' => $e->getMessage()], 200);
         }
     }
 
