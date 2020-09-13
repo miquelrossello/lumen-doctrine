@@ -10,4 +10,6 @@ interface UserRepository
 
     public function find(string $uuid): ?User;
 
+    public function delete(string $uuid): void;
+
 }

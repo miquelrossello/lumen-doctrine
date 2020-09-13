@@ -32,6 +32,17 @@ class InMemoryUserRepository implements UserRepository
                 return $user;
         }
 
-        return null;
+        throw new UserNotFoundException("User couldn't be found.");
+    }
+
+    public function delete(string $uuid): void
+    {
+        $user = self::find($uuid);
+
+        $index = array_search($user, $this->users);
+        if ($index === false)
+            throw new UserNotFoundException("User couldn't be found.");
+
+        unset($this->users[$index]);
     }
 }
